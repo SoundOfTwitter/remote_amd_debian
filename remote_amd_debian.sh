@@ -1,20 +1,11 @@
 cd /home/admin
+apt update
 apt install wget -y
 apt install tar -y
-apt install vim -y
-apt update -y
-apt upgrade -y
-apt install language-pack-zh-hans -y
-update-locale LANG=zh_CN.UTF-8
-DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4 xfce4-session
-apt-get -y install xorg dbus-x11 x11-xserver-utils
-apt-get -y install xrdp
+apt install -y xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils
+apt install -y xrdp
 adduser xrdp ssl-cert
-sed -i '10c\DefaultWindowManager=startxfce4' /etc/xrdp/sesman.ini
-systemctl enable xrdp
-systemctl enable xrdp-sesman
-systemctl start xrdp
-systemctl start xrdp-sesman
+systemctl restart xrdp
 wget https://github.com/fatedier/frp/releases/download/v0.34.2/frp_0.34.2_linux_amd64.tar.gz
 tar -zxvf frp_0.34.2_linux_amd64.tar.gz
 cd /home/admin/frp_0.34.2_linux_amd64
@@ -44,4 +35,3 @@ cp /home/admin/frp_0.34.2_linux_amd64/frps /usr/bin
 chmod +x /usr/bin/frps
 systemctl start frps
 ps -ef|grep frps
-passwd root
