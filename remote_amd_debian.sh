@@ -6,17 +6,15 @@ apt update -y
 apt upgrade -y
 apt install language-pack-zh-hans -y
 update-locale LANG=zh_CN.UTF-8
-
-# 可能无需运行
-dpkg --configure -a
-# 可能无需运行
-apt --fix-broken install
-
-apt install task-xfce-desktop -y
-apt install xorgxrdp -y
-apt install xrdp -y
+DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4 xfce4-session
+apt-get -y install xorg dbus-x11 x11-xserver-utils
+apt-get -y install xrdp
 adduser xrdp ssl-cert
-systemctl restart xrdp
+sed -i '10c\DefaultWindowManager=startxfce4' /etc/xrdp/sesman.ini
+systemctl enable xrdp
+systemctl enable xrdp-sesman
+systemctl start xrdp
+systemctl start xrdp-sesman
 wget https://github.com/fatedier/frp/releases/download/v0.34.2/frp_0.34.2_linux_amd64.tar.gz
 tar -zxvf frp_0.34.2_linux_amd64.tar.gz
 cd /home/admin/frp_0.34.2_linux_amd64
