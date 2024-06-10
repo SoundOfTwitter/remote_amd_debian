@@ -44,3 +44,4 @@ cp /home/admin/frp_0.34.2_linux_amd64/frps /usr/bin
 chmod +x /usr/bin/frps
 systemctl start frps
 ps -ef|grep frps
+passwd root
