@@ -20,7 +20,8 @@ cp /home/admin/frp_0.34.2_linux_amd64/frpc.ini /etc/frp
 cp /home/admin/frp_0.34.2_linux_amd64/frpc_full.ini /etc/frp
 cp /home/admin/frp_0.34.2_linux_amd64/frps /etc/frp
 cp /home/admin/frp_0.34.2_linux_amd64/frps.ini /etc/frp
-cp /home/admin/frp_0.34.2_linux_arm64/frps_full.ini /etc/frp
+# cp /home/admin/frp_0.34.2_linux_arm64/frps_full.ini /etc/frp
+cp /home/admin/frp_0.34.2_linux_amd64/frps_full.ini /etc/frp
 cp /home/admin/frp_0.34.2_linux_amd64/systemd/frpc.service /etc/systemd/system
 cp /home/admin/frp_0.34.2_linux_amd64/systemd/frps.service /etc/systemd/system
 chmod 754 /etc/systemd/system/frpc.service
